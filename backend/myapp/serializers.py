@@ -7,4 +7,10 @@ class InvestmentFundSerializer(serializers.ModelSerializer):
         model = InvestmentFund
         fields = '__all__'
 
+    # validate performance field to be % value between -100% to positive infinity
+    def validate_performance(self, value):
+        if value < -100:
+            raise serializers.ValidationError("Performance cannot be less than -100%")
+        return value
+
 
