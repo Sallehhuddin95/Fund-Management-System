@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 
+
+# Investment Fund Model
 class InvestmentFund (models.Model):
     name = models.CharField(max_length=100)
     manager_name = models.CharField(max_length=100)
