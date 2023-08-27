@@ -28,3 +28,13 @@ def fund_create(request):
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
+
+
+# update fund
+@api_view(['PUT'])
+def fund_update(request, pk):
+    fund = InvestmentFund.objects.get(id=pk)
+    serializer = InvestmentFundSerializer(instance=fund, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
