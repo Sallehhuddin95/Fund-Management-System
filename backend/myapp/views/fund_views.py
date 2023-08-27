@@ -38,3 +38,11 @@ def fund_update(request, pk):
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
+
+
+# delete fund
+@api_view(['DELETE'])
+def fund_delete(request, pk):
+    fund = InvestmentFund.objects.get(id=pk)
+    fund.delete()
+    return Response("Fund deleted successfully")
