@@ -8,4 +8,5 @@ urlpatterns = [
     path('<str:pk>/', views.fund_get, name="get-fund"),
     path('create/', views.fund_create, name="fund-create"),
     path('update/<str:pk>/', views.fund_update, name="fund-update"),
+    path('delete/<str:pk>/', views.fund_delete, name="fund-delete"),
 ]
