@@ -13,6 +13,14 @@ def fund_list(request):
     return Response(serializer.data)
 
 
+# get specific fund by id
+@api_view(['GET'])
+def fund_get(request, pk):
+    fund = InvestmentFund.objects.get(id=pk)
+    serializer = InvestmentFundSerializer(fund, many=False)
+    return Response(serializer.data)
+
+
 # add new fund
 @api_view(['POST'])
 def fund_create(request):
