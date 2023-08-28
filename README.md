@@ -12,7 +12,25 @@ Backend For Fund Management System using Django.
 
 - Clone the repository from GitHub.
 - Create a virtual environment and install project dependencies
-- Configure the PostgreSQL database settings in settings.py.
+- Create the `.env` file in the root directory of the project.
+- Add the following line to set your Django secret key and Database variables:
+
+  1. SECRET_KEY=your_secret_key_here
+  2. POSTGRES_DB_PASSWORD=your_database_password
+  3. POSTGRES_DB_PORT=your_database_port
+  4. POSTGRES_DB_NAME=your_database_name
+
+####
+
+- Configure the PostgreSQL database settings and Secret Key in settings.py. Read from .env files for below variables:
+
+  1. SECRET_KEY = os.getenv("SECRET_KEY")
+  2. DB_NAME = os.getenv("POSTGRES_DB_NAME")
+  3. DB_PORT = os.getenv("POSTGRES_DB_PORT")
+  4. DB_PASSWORD = os.getenv("POSTGRES_DB_PASSWORD")
+
+  ![DB Settings](DB_Settings.png)
+
 - Run migrations using python manage.py migrate.
 - Start the development server with python manage.py runserver.
 - Access the API at http://127.0.0.1:8000/api/.
